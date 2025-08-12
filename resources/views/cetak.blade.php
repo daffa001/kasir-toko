@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Struk Transaksi - DakraMart</title>
+    <title>Struk Transaksi - Toko Kue</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link href="{{ asset('assets/bootstrap.min.css') }}" rel="stylesheet">
@@ -38,10 +38,11 @@
 
     <div class="container struk pt-4">
         <div class="text-center">
-            <h5 class="fw-bold">DakraMart</h5>
+            <h5 class="fw-bold">Toko Kue</h5>
             <p class="mb-0">Jl. Contoh No. 1, Karanganyar</p>
             <p class="mb-2">Tanggal: {{ $transaksi->tanggal->format('Y-m-d H:i') }} | No:
-                {{ $transaksi->kode_transaksi }}</p>
+                {{ $transaksi->kode_transaksi }}
+            </p>
         </div>
 
         <hr class="dashed">
@@ -57,12 +58,12 @@
             </thead>
             <tbody>
                 @foreach ($transaksi->detail_transaksi as $item)
-                    <tr>
-                        <td>{{ $item->barang->nama }}</td>
-                        <td class="text-end">Rp {{ number_format($item->barang->harga) }}</td>
-                        <td class="text-center">{{ $item->jumlah }}</td>
-                        <td class="text-end">Rp {{ number_format($item->subtotal) }}</td>
-                    </tr>
+                <tr>
+                    <td>{{ $item->barang->nama }}</td>
+                    <td class="text-end">Rp {{ number_format($item->barang->harga) }}</td>
+                    <td class="text-center">{{ $item->jumlah }}</td>
+                    <td class="text-end">Rp {{ number_format($item->subtotal) }}</td>
+                </tr>
                 @endforeach
             </tbody>
 

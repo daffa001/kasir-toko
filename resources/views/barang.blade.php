@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
-  <title>Kelola Barang - DakraMart</title>
+  <title>Kelola Barang - Toko Kue</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap CSS -->
   <link href="{{asset('assets/bootstrap.min.css')}}" rel="stylesheet">
 </head>
+
 <body>
- <!-- Navbar -->
- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-      <span class="navbar-brand">DakraMart</span>
+      <span class="navbar-brand">Toko Kue</span>
       <div class="ms-auto d-flex align-items-center text-white">
         <span class="me-3">Kasir: <strong>Nama Kasir</strong></span>
         <a href="{{route('kasir.index')}}" class="btn btn-outline-light btn-sm m-2">Transaksi</a>
@@ -29,7 +31,7 @@
       <div class="card-header">Form Barang</div>
       <div class="card-body">
         <form id="formBarang" action="{{route('barang.store')}}" method="POST">
-            @csrf
+          @csrf
           <div class="row g-3">
             <div class="col-md-3">
               <label for="kode_barang" class="form-label">Kode Barang</label>
@@ -72,19 +74,19 @@
         <tbody>
           <!-- Contoh data statis -->
           @foreach ($barang as $num => $row)
-            <tr>
+          <tr>
             <td>{{$num+1}}</td>
             <td>{{$row->kode}}</td>
             <td>{{$row->nama}}</td>
             <td class="text-end">{{$row->harga}}</td>
             <td class="text-center">{{$row->stok}}</td>
             <td class="text-center">
-                <a href="{{route('barang.edit',$row->id)}}" class="btn btn-sm btn-warning m-2"> Edit </a>
-                <form action="{{route('barang.destroy',$row->id)}}" method="POST">
-                    @csrf
-                    @method('delete')
-                    <button class="btn btn-sm btn-danger">Hapus</button>
-                </form>
+              <a href="{{route('barang.edit',$row->id)}}" class="btn btn-sm btn-warning m-2"> Edit </a>
+              <form action="{{route('barang.destroy',$row->id)}}" method="POST">
+                @csrf
+                @method('delete')
+                <button class="btn btn-sm btn-danger">Hapus</button>
+              </form>
             </td>
           </tr>
           @endforeach
@@ -96,4 +98,5 @@
   <!-- Bootstrap JS -->
   <script src="{{asset('assets/bootstrap.bundle.min.js')}}"></script>
 </body>
+
 </html>

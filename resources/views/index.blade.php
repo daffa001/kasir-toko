@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login - DakraMart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Toko Kue</title>
   <link href="{{asset('assets/bootstrap.min.css')}}" rel="stylesheet">
   <style>
-    body, html {
+    body,
+    html {
       height: 100%;
     }
+
     .login-container {
       height: 100vh;
     }
   </style>
 </head>
+
 <body class="bg-light">
   <div class="container d-flex justify-content-center align-items-center login-container">
     <div class="card shadow p-4" style="min-width: 300px; max-width: 400px; width: 100%;">
-      <h4 class="text-center mb-4">Login Kasir DakraMart</h4>
+      <h4 class="text-center mb-4">Login Kasir Toko Kue</h4>
       <form action="{{route('Login.store')}}" method="POST">
         @csrf
         <div class="mb-3">
@@ -34,4 +38,5 @@
   </div>
   <script src="{{asset('assets/bootstrap.bundle.min.js')}}"></script>
 </body>
+
 </html>
