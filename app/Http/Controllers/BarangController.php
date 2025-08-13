@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\barang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BarangController extends Controller
+
+
 {
     /**
      * Display a listing of the resource.
@@ -27,6 +30,8 @@ class BarangController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
+
     public function store(Request $request)
     {
         $request->validate([
@@ -34,10 +39,27 @@ class BarangController extends Controller
             'nama' => 'required',
             'harga' => 'required',
             'stok' => 'required',
+            'gambar' => 'required|image'
         ]);
-        barang::create($request->all());
+
+        if ($request->hasFile('gambar')) {
+            $image = $request->file('gambar');
+            $filename = Str::slug($request->nama) . '-' . time() . '.' . $image->getClientOriginalExtension();
+            // Simpan ke storage/app/public/kue dengan filename
+            $image->storeAs('kue/' . $filename);
+        }
+
+        Barang::create([
+            'kode' => $request->kode,
+            'nama' => $request->nama,
+            'harga' => $request->harga,
+            'stok' => $request->stok,
+            'gambar' => $filename,
+        ]);
+
         return redirect()->route('barang.index');
     }
+
 
     /**
      * Display the specified resource.
@@ -68,14 +90,14 @@ class BarangController extends Controller
             'stok' => 'required',
         ]);
 
-        $data=([
+        $data = ([
             'kode' => $request->kode,
             'nama' => $request->nama,
             'harga' => $request->harga,
             'stok' => $request->stok,
         ]);
         Barang::find($id)->update($data);
-       return redirect()->route('barang.index');
+        return redirect()->route('barang.index');
     }
 
     /**

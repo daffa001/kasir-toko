@@ -30,7 +30,7 @@
     <div class="card mb-4">
       <div class="card-header">Form Barang</div>
       <div class="card-body">
-        <form id="formBarang" action="{{route('barang.store')}}" method="POST">
+        <form id="formBarang" action="{{route('barang.store')}}" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="row g-3">
             <div class="col-md-3">
@@ -48,6 +48,10 @@
             <div class="col-md-3">
               <label for="stok" class="form-label">Stok</label>
               <input type="number" class="form-control" id="stok" name="stok" required>
+            </div>
+            <div class="col-md-3">
+              <label for="gambar" class="form-label">Gambar</label>
+              <input type="file" class="form-control" id="gambar" name="gambar" required>
             </div>
           </div>
           <div class="mt-3">
@@ -68,6 +72,7 @@
             <th>Nama Barang</th>
             <th class="text-end">Harga</th>
             <th class="text-center">Stok</th>
+            <th class="text-center">Gambar</th>
             <th class="text-center">Aksi</th>
           </tr>
         </thead>
@@ -80,6 +85,7 @@
             <td>{{$row->nama}}</td>
             <td class="text-end">{{$row->harga}}</td>
             <td class="text-center">{{$row->stok}}</td>
+            <td class="text-center"> <img src="{{ asset('storage/kue/' . $row->gambar) }}" alt=""></td>
             <td class="text-center">
               <a href="{{route('barang.edit',$row->id)}}" class="btn btn-sm btn-warning m-2"> Edit </a>
               <form action="{{route('barang.destroy',$row->id)}}" method="POST">

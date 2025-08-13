@@ -12,6 +12,7 @@ class barang extends Model
         'nama',
         'harga',
         'stok',
+        'gambar'
     ];
     public function detail_transaksi()
     {
