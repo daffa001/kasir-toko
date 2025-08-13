@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Kelola Barang - Toko Kue</title>
+  <title>Kelola Kue - Toko Kue</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap CSS -->
   <link href="{{asset('assets/bootstrap.min.css')}}" rel="stylesheet">
@@ -22,7 +22,7 @@
 
   <!-- Konten -->
   <div class="container py-4">
-    <h4 class="mb-4">Kelola Data Barang</h4>
+    <h4 class="mb-4">Kelola Data Kue</h4>
 
     <!-- Form Tambah/Edit Barang -->
     <div class="card mb-4">
@@ -37,7 +37,7 @@
               <input type="text" class="form-control" id="kode_barang" name="kode" value="{{$barang->kode}}" required>
             </div>
             <div class="col-md-3">
-              <label for="nama_barang" class="form-label">Nama Barang</label>
+              <label for="nama_barang" class="form-label">Nama Kue</label>
               <input type="text" class="form-control" id="nama_barang" name="nama" value="{{$barang->nama}}" required>
             </div>
             <div class="col-md-3">
