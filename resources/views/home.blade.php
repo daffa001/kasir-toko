@@ -16,7 +16,7 @@
             <span class="navbar-brand">Toko Kue</span>
             <div class="ms-auto d-flex align-items-center text-white">
                 <span class="me-3">Kasir: <strong>Nama Kasir</strong></span>
-                <a href="{{route('barang.index')}}" class="btn btn-outline-light btn-sm m-2">Barang</a>
+                <a href="{{route('barang.index')}}" class="btn btn-outline-light btn-sm m-2">Kue</a>
                 <a href="{{route('Login.create')}}" class="btn btn-outline-light btn-sm">Logout</a>
             </div>
         </div>
@@ -30,13 +30,13 @@
             <!-- Kolom Kiri (8) -->
             <div class="col-md-8">
 
-                <!-- Form Input Barang -->
+                <!-- Form Input Kue -->
                 <form class="row g-3 mb-4" action="{{ route('kasir.add') }}" method="POST">
                     @csrf
                     <div class="col-md-6">
-                        <label for="barang" class="form-label">Pilih Barang</label>
+                        <label for="barang" class="form-label">Pilih Kue</label>
                         <select class="form-select" id="barang" name="barang" required>
-                            <option selected disabled>Pilih barang...</option>
+                            <option selected disabled>Pilih Kue...</option>
                             @foreach ($barang as $item)
                             <option value="{{ $item->id }}">{{ $item->nama }}</option>
                             @endforeach
@@ -57,7 +57,7 @@
                         <thead class="table-primary text-center">
                             <tr>
                                 <th>No</th>
-                                <th>Nama Barang</th>
+                                <th>Nama Kue</th>
                                 <th>Harga</th>
                                 <th>Jumlah</th>
                                 <th>Subtotal</th>
@@ -83,7 +83,7 @@
                             <!-- Baris lain diisi dengan data dari session/database -->
                             @empty
                             <tr>
-                                <td colspan="6" class="text-center">Belum Ada Barang atau Produk.</td>
+                                <td colspan="6" class="text-center">Belum Ada Kue atau Produk.</td>
                             </tr>
                             @endforelse
                         </tbody>

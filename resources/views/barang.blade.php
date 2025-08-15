@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Kelola Barang - Toko Kue</title>
+  <title>Kelola Kue - Toko Kue</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap CSS -->
   <link href="{{asset('assets/bootstrap.min.css')}}" rel="stylesheet">
@@ -24,7 +24,7 @@
 
   <!-- Konten -->
   <div class="container py-4">
-    <h4 class="mb-4">Kelola Data Barang</h4>
+    <h4 class="mb-4">Kelola Data Kue</h4>
 
     <!-- Form Tambah/Edit Barang -->
     <div class="card mb-4">
@@ -38,7 +38,7 @@
               <input type="text" class="form-control" id="kode_barang" name="kode" required>
             </div>
             <div class="col-md-3">
-              <label for="nama_barang" class="form-label">Nama Barang</label>
+              <label for="nama_barang" class="form-label">Nama Kue</label>
               <input type="text" class="form-control" id="nama_barang" name="nama" required>
             </div>
             <div class="col-md-3">
@@ -67,10 +67,10 @@
       <table class="table table-bordered table-striped align-middle">
         <thead class="table-light">
           <tr>
-            <th>No</th>
-            <th>Kode</th>
-            <th>Nama Barang</th>
-            <th class="text-end">Harga</th>
+            <th class="text-center">No</th>
+            <th class="text-center">Kode</th>
+            <th class="text-center">Nama Kue</th>
+            <th class="text-center">Harga</th>
             <th class="text-center">Stok</th>
             <th class="text-center">Gambar</th>
             <th class="text-center">Aksi</th>
@@ -80,12 +80,12 @@
           <!-- Contoh data statis -->
           @foreach ($barang as $num => $row)
           <tr>
-            <td>{{$num+1}}</td>
-            <td>{{$row->kode}}</td>
-            <td>{{$row->nama}}</td>
-            <td class="text-end">{{$row->harga}}</td>
+            <td class="text-center">{{$num+1}}</td>
+            <td class="text-center">{{$row->kode}}</td>
+            <td class="text-center">{{$row->nama}}</td>
+            <td class="text-center">Rp {{ number_format($row->harga, 0, ',', '.') }}</td>
             <td class="text-center">{{$row->stok}}</td>
-            <td class="text-center"> <img src="{{ asset('storage/kue/' . $row->gambar) }}" alt=""></td>
+            <td class="text-center"> <img src="{{ asset('storage/kue/' . $row->gambar) }}" alt="" style="max-height: 150px; max-width: 250px;"></td>
             <td class="text-center">
               <a href="{{route('barang.edit',$row->id)}}" class="btn btn-sm btn-warning m-2"> Edit </a>
               <form action="{{route('barang.destroy',$row->id)}}" method="POST">
