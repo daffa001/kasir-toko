@@ -85,7 +85,7 @@
             <td class="text-center">{{$row->nama}}</td>
             <td class="text-center">Rp {{ number_format($row->harga, 0, ',', '.') }}</td>
             <td class="text-center">{{$row->stok}}</td>
-            <td class="text-center"> <img src="{{ asset('storage/kue/' . $row->gambar) }}" alt=""></td>
+            <td class="text-center"> <img src="{{ asset('storage/kue/' . $row->gambar) }}" alt="" style="max-height: 150px; max-width: 250px;"></td>
             <td class="text-center">
               <a href="{{route('barang.edit',$row->id)}}" class="btn btn-sm btn-warning m-2"> Edit </a>
               <form action="{{route('barang.destroy',$row->id)}}" method="POST">
