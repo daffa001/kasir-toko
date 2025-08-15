@@ -28,7 +28,7 @@
     <div class="card mb-4">
       <div class="card-header">Form Barang</div>
       <div class="card-body">
-        <form id="formBarang" action="{{route('barang.update',$barang->id)}}" method="POST">
+        <form id="formBarang" action="{{route('barang.update',$barang->id)}}" method="POST" enctype="multipart/form-data">
           @csrf
           @method('put')
           <div class="row g-3">
@@ -47,6 +47,18 @@
             <div class="col-md-3">
               <label for="stok" class="form-label">Stok</label>
               <input type="number" class="form-control" id="stok" name="stok" value="{{$barang->stok}}" required>
+            </div>
+            <div class="col-md-3">
+              <label for="gambar" class="form-label">Gambar</label>
+              <input type="file" class="form-control" id="gambar" name="gambar">
+
+              @if($barang->gambar)
+              <div class="mt-2">
+                <img src="{{ asset('storage/kue/' . $barang->gambar) }}"
+                  alt="Gambar Barang"
+                  style="max-height: 150px; max-width: 200px;">
+              </div>
+              @endif
             </div>
           </div>
           <div class="mt-3">

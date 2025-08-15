@@ -90,13 +90,22 @@ class BarangController extends Controller
             'stok' => 'required',
         ]);
 
-        $data = ([
+        $barang = barang::where('id',$id)->first();
+        $filename = $barang->gambar;
+        if ($request->hasFile('gambar')) {
+            $image = $request->file('gambar');
+            $filename = Str::slug($request->nama) . '-' . time() . '.' . $image->getClientOriginalExtension();
+            // Simpan ke storage/app/public/kue dengan filename
+            $image->storeAs('kue/' . $filename);
+        }
+
+        Barang::find($id)->update([
             'kode' => $request->kode,
             'nama' => $request->nama,
             'harga' => $request->harga,
             'stok' => $request->stok,
+            'gambar' => $filename,
         ]);
-        Barang::find($id)->update($data);
         return redirect()->route('barang.index');
     }
 
