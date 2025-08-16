@@ -26,7 +26,7 @@
 
     <!-- Form Tambah/Edit Barang -->
     <div class="card mb-4">
-      <div class="card-header">Form Barang</div>
+      <div class="card-header">Form Kue</div>
       <div class="card-body">
         <form id="formBarang" action="{{route('barang.update',$barang->id)}}" method="POST" enctype="multipart/form-data">
           @csrf

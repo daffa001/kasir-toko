@@ -38,10 +38,10 @@
 
     <div class="container struk pt-4">
         <div class="text-center">
-            <h5 class="fw-bold">Toko Kue</h5>
-            <p class="mb-0">Jl. Contoh No. 1, Karanganyar</p>
-            <p class="mb-2">Tanggal: {{ $transaksi->tanggal->format('Y-m-d H:i') }} | No:
-                {{ $transaksi->kode_transaksi }}
+            <h5 class="fw-bold">KHAICA.CAKE</h5>
+            <p class="mb-0">No. 089523066464</p>
+            <p class="mb-0">gg. hj toha kp curug rt04/rw03 no 40</p>
+            <p class="mb-2">Tanggal: {{ $transaksi->tanggal->format('Y-m-d H:i') }}
             </p>
         </div>
 
