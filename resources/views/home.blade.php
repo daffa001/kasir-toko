@@ -11,16 +11,8 @@
 <body class="bg-light">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <span class="navbar-brand">Khaica.Cake</span>
-            <div class="ms-auto d-flex align-items-center text-white">
-                <span class="me-3">Kasir: <strong>Nama Kasir</strong></span>
-                <a href="{{route('barang.index')}}" class="btn btn-outline-light btn-sm m-2">Kue</a>
-                <a href="{{route('Login.create')}}" class="btn btn-outline-light btn-sm">Logout</a>
-            </div>
-        </div>
-    </nav>
+    @include('layouts.navbar')
+
 
     <!-- Main Content -->
     <div class="container my-4">
