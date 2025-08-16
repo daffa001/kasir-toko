@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             'kode' => 'BRG001',
             'nama' => 'Pensil',
             'harga' => '5000',
+            'gambar' => 'default.jpg',
             'stok' => '100',
         ]);
     }
