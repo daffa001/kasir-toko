@@ -11,16 +11,8 @@
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-      <span class="navbar-brand">Toko Kue</span>
-      <div class="ms-auto d-flex align-items-center text-white">
-        <span class="me-3">Kasir: <strong>Nama Kasir</strong></span>
-        <a href="{{route('kasir.index')}}" class="btn btn-outline-light btn-sm m-2">Transaksi</a>
-        <a href="{{route('Login.create')}}" class="btn btn-outline-light btn-sm">Logout</a>
-      </div>
-    </div>
-  </nav>
+  @include('layouts.navbar')
+
 
   <!-- Konten -->
   <div class="container py-4">
@@ -28,13 +20,13 @@
 
     <!-- Form Tambah/Edit Barang -->
     <div class="card mb-4">
-      <div class="card-header">Form Barang</div>
+      <div class="card-header">Form Kue</div>
       <div class="card-body">
         <form id="formBarang" action="{{route('barang.store')}}" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="row g-3">
             <div class="col-md-3">
-              <label for="kode_barang" class="form-label">Kode Barang</label>
+              <label for="kode_barang" class="form-label">Kode Kue</label>
               <input type="text" class="form-control" id="kode_barang" name="kode" required>
             </div>
             <div class="col-md-3">
